@@ -1,0 +1,205 @@
+@import 'utilities/variables.scss';
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 35rem;
+    color: $gray;
+    background-color: $black;
+
+    @media (min-width: 576px) {
+        height: 40rem;
+    }
+
+    @media (min-width: 992px) {
+        // height: 0;
+        // padding-bottom: 40%;
+    }
+
+    .hero-slide {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        transition: opacity 300ms, transform 300ms;
+    }
+
+    .backdrop {
+        position: relative;
+        display: flex;
+        flex: 1 1 auto;
+        min-height: 0;
+
+        @media (min-width: 992px) {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 71.1%;
+            height: 100%;
+        }
+
+        &::after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: block;
+            content: '';
+            background-image: linear-gradient(to top, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.1) 50%, rgba(0, 0, 0, 0.1) 100%);
+
+            @media (min-width: 992px) {
+                background-image: linear-gradient(to right, #000 0, transparent 50%, transparent 100%);
+            }
+        }
+
+        >div {
+            width: 100%;
+
+            @media (min-width: 992px) {
+                display: inline;
+            }
+        }
+    }
+
+    .image {
+        position: relative;
+        display: inline-block;
+        max-width: none;
+        height: 100%;
+
+        @media (max-width: #{992px - 1}) {
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    .pane {
+        padding: 0 1.5rem 1.5rem;
+
+        @media (min-width: 768px) {
+            padding: 0 4rem 4rem;
+        }
+
+        @media (min-width: 992px) {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            display: flex;
+            align-items: center;
+            width: 55%;
+            height: 100%;
+            padding: 5rem 4rem;
+        }
+
+        @media (min-width: 1200px) {
+            padding-right: 5rem;
+            padding-left: 5rem;
+        }
+
+        @media (min-width:1330px) {
+            width: 43%;
+        }
+    }
+
+    .name {
+        margin: 0 0 1.4rem;
+        font-size: 2.8rem;
+        line-height: 1.1;
+        color: $white;
+        letter-spacing: 1px;
+        cursor: pointer;
+        text-transform: capitalize;
+
+        @media (min-width: 576px) {
+            margin-bottom: 1.8rem;
+        }
+
+        @media (min-width: 1200px) {
+            font-size: 2.4vw;
+        }
+    }
+
+    .meta {
+        font-size: 1rem;
+
+        @media (min-width: 576px) {
+            display: flex;
+        }
+
+        @media (min-width: 1650px) {
+            font-size: 0.9vw;
+        }
+    }
+
+    .rating {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1.3rem;
+
+        @media (min-width: 576px) {
+            margin: 0 0.6rem 0 0;
+        }
+    }
+
+    .stars {
+
+        margin-right: 1rem;
+
+        .hugeicons-icon {
+            color: $gray;
+        }
+
+        hugeicons-icon.filled {
+            color: gold;
+        }
+
+        @media (min-width: 576px) {
+            width: 10.3rem;
+            height: 1.7rem;
+        }
+
+    }
+
+
+    .info {
+        display: flex;
+        align-items: center;
+
+        span {
+            margin-right: 0.9rem;
+        }
+    }
+
+    .desc {
+        display: block;
+        margin-top: 2.5rem;
+        color: $white;
+
+        @media (max-width: #{576px - 1}) {
+            display: none;
+        }
+
+        @media (min-width: 1650px) {
+            font-size: 1vw;
+        }
+    }
+
+    .trailer {
+        margin-top: 3rem;
+
+        @media (max-width: #{992px - 1}) {
+            display: none;
+        }
+
+        @media (min-width: 1650px) {
+            font-size: 0.9vw;
+        }
+    }
+
+}

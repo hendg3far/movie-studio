@@ -4,11 +4,13 @@ import { Component, Input, OnInit } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { TruncatePipe } from '../../pipes/elipsis.pipe';
 import { NumberWithCommasPipe } from '../../pipes/number-with-commas.pipe';
+import { HugeiconsIconComponent } from '@hugeicons/angular';
+import { StarIcon } from '@hugeicons/core-free-icons';
 
 @Component({
   selector: 'app-hero-slider',
   standalone: true,
-  imports: [RouterLink, CommonModule, TruncatePipe, NumberWithCommasPipe],
+  imports: [RouterLink, CommonModule, TruncatePipe, NumberWithCommasPipe, HugeiconsIconComponent],
   templateUrl: './hero-slider.component.html',
   styleUrl: './hero-slider.component.scss',
   animations: [
@@ -27,7 +29,7 @@ export class HeroSliderComponent implements OnInit {
   @Input() slides: any[] = [];
   current = 0;
   private intervalId: any;
-
+  StarIcon = StarIcon;
 
   ngOnInit() {
     this.sliderTimer()
