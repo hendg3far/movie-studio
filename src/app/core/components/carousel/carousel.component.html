@@ -13,7 +13,7 @@
 
         <!-- Swiper -->
         <swiper-container class="carousel" [slides-per-view]="swiperConfig.slidesPerView"
-            [space-between]="swiperConfig.spaceBetween" [navigation]="true" [loop]="swiperConfig.loop"
+            [space-between]="swiperConfig.spaceBetween" [navigation]="false" [loop]="swiperConfig.loop"
             [autoplay]="swiperConfig.autoplay" [breakpoints]="swiperConfig.breakpoints">
 
             <!-- Item Slides -->
@@ -41,10 +41,12 @@
                                     <div class="rating d-flex align-items-center gap-3">
                                         <div class="stars">
                                             <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
-                                                <hugeicons-icon [icon]="StarIcon"
-                                                    [ngClass]="{ 'filled': (+item.vote / 2) > i }" [size]="15"
-                                                    [strokeWidth]="1">
-                                                </hugeicons-icon>
+                                                <svg class="star" [ngClass]="{ 'filled': (+item.vote / 2) > i }"
+                                                    width="15" height="14" viewBox="0 0 15 14"
+                                                    xmlns="http://www.w3.org/2000/svg">
+                                                    <path
+                                                        d="M7.2 10.5609L11.6437 13.7953L9.95625 8.52185L14.4 5.39998H9L7.2 -2.38419e-05L5.4 5.39998H0L4.44375 8.52185L2.75625 13.7953L7.2 10.5609Z" />
+                                                </svg>
                                             </ng-container>
                                         </div>
                                         <div class="card__vote">{{ item.vote }}</div>
@@ -63,16 +65,6 @@
                 </div>
             </swiper-slide>
 
-            <!-- Explore All Slide -->
-            <!-- <swiper-slide>
-                <div class="card">
-                    <a [routerLink]="[exploreLink]" class="card__link">
-                        <div class="card__img explore-card">
-                            <span>Explore All</span>
-                        </div>
-                    </a>
-                </div>
-            </swiper-slide> -->
 
         </swiper-container>
     </div>

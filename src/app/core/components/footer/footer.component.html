@@ -1,1 +1,24 @@
-<p>footer works!</p>
+<footer>
+    <div class="container">
+        <div class="d-flex gap-2 justify-content-between">
+            <span>&copy; {{ currentYear }} Hend Gafar. All rights reserved.</span>
+            <div class="d-flex gap-3">
+                <span class="me-1">Contact me : </span>
+                <!-- Phone -->
+                <a href="tel:+01012063937" target="_blank" rel="noopener noreferrer">
+                    <hugeicons-icon [icon]="SmartPhone01Icon" size="20" [strokeWidth]="1.5"></hugeicons-icon>
+                </a>
+
+                <!-- Email -->
+                <a href="mailto:hendgafar123@gmail.com" target="_blank" rel="noopener noreferrer">
+                    <hugeicons-icon [icon]="Mail01Icon" size="20" [strokeWidth]="1.5"></hugeicons-icon>
+                </a>
+
+                <!-- LinkedIn -->
+                <a href="https://www.linkedin.com/in/hendgafar" target="_blank" rel="noopener noreferrer">
+                    <hugeicons-icon [icon]="Linkedin01Icon" size="20" [strokeWidth]="1.5"></hugeicons-icon>
+                </a>
+            </div>
+        </div>
+    </div>
+</footer>

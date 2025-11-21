@@ -17,12 +17,12 @@
         font-size: 0.8rem;
     }
 
-    .stars hugeicons-icon {
-        width: 16px !important;
-        height: 16px !important;
+    .star path {
+        fill: #C3C3C3;
+        transition: fill 0.25s ease;
+    }
 
-        &.filled {
-            color: gold;
-        }
+    .star.filled path {
+        fill: #FFD700;
     }
 }

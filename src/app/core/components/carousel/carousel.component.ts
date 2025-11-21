@@ -4,14 +4,12 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { register } from 'swiper/element/bundle';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HugeiconsIconComponent } from '@hugeicons/angular';
-import { StarIcon } from '@hugeicons/core-free-icons';
 register();
 
 @Component({
   selector: 'app-carousel',
   standalone: true,
-  imports: [RouterLink, CommonModule, RouterLinkActive, HugeiconsIconComponent],
+  imports: [RouterLink, CommonModule, RouterLinkActive],
   templateUrl: './carousel.component.html',
   styleUrls: ['./carousel.component.scss'],
   animations: [
@@ -39,12 +37,10 @@ export class CarouselComponent {
   @Input() isExplore = true;
   @Input() isDefaultExplore = false;
 
-  StarIcon = StarIcon;
-
   swiperConfig = {
     slidesPerView: 6,
     spaceBetween: 14,
-    navigation: true,
+    navigation: false,
     loop: true,
     autoplay: {
       delay: 2500,
@@ -58,4 +54,5 @@ export class CarouselComponent {
       0: { slidesPerView: 1 }
     }
   };
+
 }

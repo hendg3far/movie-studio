@@ -4,15 +4,13 @@ import { Component, Input, OnDestroy, OnInit, ViewContainerRef } from '@angular/
 import { RouterLink } from '@angular/router';
 import { TruncatePipe } from '../../pipes/elipsis.pipe';
 import { NumberWithCommasPipe } from '../../pipes/number-with-commas.pipe';
-import { HugeiconsIconComponent } from '@hugeicons/angular';
-import { StarIcon } from '@hugeicons/core-free-icons';
 import { ApiService } from '../../services/api.service';
 import { ModalComponent } from '../modal/modal.component';
 
 @Component({
   selector: 'app-hero-slider',
   standalone: true,
-  imports: [RouterLink, CommonModule, TruncatePipe, NumberWithCommasPipe, HugeiconsIconComponent],
+  imports: [RouterLink, CommonModule, TruncatePipe, NumberWithCommasPipe],
   templateUrl: './hero-slider.component.html',
   styleUrl: './hero-slider.component.scss',
   animations: [
@@ -31,7 +29,6 @@ export class HeroSliderComponent implements OnInit, OnDestroy {
   @Input() slides: any[] = [];
   current = 0;
   private intervalId: any;
-  StarIcon = StarIcon;
 
   constructor(private apiService: ApiService, private vcr: ViewContainerRef,
   ) { }

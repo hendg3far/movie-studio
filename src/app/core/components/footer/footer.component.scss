@@ -1,0 +1,12 @@
+@import 'utilities/variables.scss';
+
+footer {
+    background-image: linear-gradient(90deg, $primary, $secondary);
+    color: $white;
+    padding: 15px 0;
+    margin-top: 4rem;
+}
+
+::ng-deep hugeicons-icon svg {
+    color: $white;
+}
