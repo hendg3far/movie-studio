@@ -1,0 +1,28 @@
+@import 'utilities/variables.scss';
+
+
+.carousel .card {
+    .card__img img {
+        width: 100%;
+        border-radius: 8px;
+    }
+
+    .card__name {
+        font-size: 0.9rem;
+        margin-top: 0.3rem;
+    }
+
+    .card__vote {
+        color: $gray;
+        font-size: 0.8rem;
+    }
+
+    .stars hugeicons-icon {
+        width: 16px !important;
+        height: 16px !important;
+
+        &.filled {
+            color: gold;
+        }
+    }
+}

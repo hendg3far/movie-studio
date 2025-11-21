@@ -1,42 +1,47 @@
 <div class="hero">
     <ng-container *ngFor="let hero of slides; let i = index">
         <div class="hero-slide" *ngIf="current === i" @fade>
-            <div class="backdrop">
-                <div class="lazyloaded">
-                    <img alt="{{hero?.title || hero?.name}}" class="lazyload image"
-                        src="https://image.tmdb.org/t/p/original/{{hero?.backdrop_path}}">
+            <div class="container">
+                <div class="backdrop">
+                    <div class="lazyloaded">
+                        <img alt="{{hero?.title || hero?.name}}" class="lazyload image"
+                            src="https://image.tmdb.org/t/p/original/{{hero?.backdrop_path}}">
+                    </div>
                 </div>
-            </div>
-            <div class="pane">
-                <div>
-                    <h1 class="name text-capitalize" [routerLink]="[hero.link]">
-                        {{hero?.title || hero?.name}}
-                    </h1>
-                    <div class="meta">
-                        <div class="rating">
-                            <div class="stars">
-                                <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
-                                    <hugeicons-icon [icon]="StarIcon"
-                                        [ngClass]="{ 'filled': (+hero.vote_average / 2) > i }" width="15" height="15"
-                                        [strokeWidth]="1">
-                                    </hugeicons-icon>
-                                </ng-container>
+                <div class="pane col-lg-5">
+                    <div>
+                        <h1 class="name text-capitalize" [routerLink]="[hero.link]">
+                            {{hero?.title || hero?.name}}
+                        </h1>
+                        <div class="meta">
+                            <div class="rating">
+                                <div class="stars">
+                                    <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+                                        <hugeicons-icon [icon]="StarIcon"
+                                            [ngClass]="{ 'filled': (+hero.vote_average / 2) > i }" width="15"
+                                            height="15" [strokeWidth]="1">
+                                        </hugeicons-icon>
+                                    </ng-container>
+                                </div>
+                                <div *ngIf="hero.vote_count > 0">
+                                    {{ hero.vote_count | numberWithCommas }} Reviews
+                                </div>
                             </div>
-                            <div *ngIf="hero.vote_count > 0">
-                                {{ hero.vote_count | numberWithCommas }} Reviews
+                            <div class="info">
+                                <span *ngIf="hero.number_of_seasons">Season {{ hero.number_of_seasons }}</span>
+                                <span *ngIf="hero?.release_date || hero?.first_air_date">{{ hero?.release_date ||
+                                    hero?.first_air_date |
+                                    date }}</span>
                             </div>
                         </div>
-                        <div class="info">
-                            <span *ngIf="hero.number_of_seasons">Season {{ hero.number_of_seasons }}</span>
-                            <span *ngIf="hero?.release_date || hero?.first_air_date">{{ hero?.release_date ||
-                                hero?.first_air_date |
-                                date }}</span>
+                        <div class="desc">
+                            {{ hero?.overview | truncate }}
                         </div>
+                        <button *ngIf="hero.videoId" type="button" class="button button--primary trailer"
+                            (click)="openTrailer(hero)">
+                            Watch Trailer
+                        </button>
                     </div>
-                    <div class="desc">
-                        {{ hero?.overview | truncate }}
-                    </div>
-
                 </div>
             </div>
         </div>

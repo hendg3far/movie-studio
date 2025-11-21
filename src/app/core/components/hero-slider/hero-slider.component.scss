@@ -11,12 +11,7 @@
     background-color: $black;
 
     @media (min-width: 576px) {
-        height: 40rem;
-    }
-
-    @media (min-width: 992px) {
-        // height: 0;
-        // padding-bottom: 40%;
+        height: 45rem;
     }
 
     .hero-slide {
@@ -78,33 +73,24 @@
     }
 
     .pane {
-        padding: 0 1.5rem 1.5rem;
+        padding: 0 1.5rem 0;
 
         @media (min-width: 768px) {
-            padding: 0 4rem 4rem;
+            padding: 0 0 4rem;
         }
 
         @media (min-width: 992px) {
             position: absolute;
             top: 0;
             bottom: 0;
-            left: 0;
             z-index: 1;
             display: flex;
             align-items: center;
-            width: 55%;
             height: 100%;
-            padding: 5rem 4rem;
+            padding: 5rem 0;
         }
 
-        @media (min-width: 1200px) {
-            padding-right: 5rem;
-            padding-left: 5rem;
-        }
 
-        @media (min-width:1330px) {
-            width: 43%;
-        }
     }
 
     .name {

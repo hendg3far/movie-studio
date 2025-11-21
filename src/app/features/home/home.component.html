@@ -1,1 +1,7 @@
 <app-hero-slider [slides]="movies_data"></app-hero-slider>
+
+<app-carousel [items]="movies_slider" [title]="'Popular Movies'" [isExplore]="false"
+    [exploreLink]="'/movie/category/now_playing'"></app-carousel>
+
+<app-carousel [items]="tv_slider" [title]="'Popular TV Shows'" [isExplore]="false"
+    [exploreLink]="'/movie/category/airing_today'"></app-carousel>

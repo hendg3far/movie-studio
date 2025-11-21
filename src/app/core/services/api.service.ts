@@ -1,7 +1,7 @@
 import { HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { catchError, Observable, throwError } from 'rxjs';
-import { environment } from '../../environments/environment';
+import { environment } from '../../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +33,22 @@ export class ApiService {
       .pipe(
         catchError(this.handleError.bind(this))
       );
+  }
+
+  getYouTubeVideo(id: number, mediaType: string): Observable<any> {
+    const params = this.buildParams({});
+    return this.http
+      .get(`${this.apiUrl}/${mediaType}/${id}/videos`, { params })
+      .pipe(
+        catchError(this.handleError.bind(this))
+      );
+  }
+
+  getTrending(media: string, page: number): Observable<any> {
+    const params = this.buildParams({ page: page.toString() });
+    return this.http
+      .get(`${this.apiUrl}/trending/${media}/week`, { params })
+      .pipe(catchError(this.handleError))
   }
 
   private handleError(error: any): Observable<never> {

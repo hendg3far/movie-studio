@@ -6,6 +6,10 @@ body {
     font-family: $font-li;
 }
 
+* {
+    outline: 0 !important;
+}
+
 h1,
 h2,
 h3,
@@ -17,4 +21,38 @@ h6 {
 
 img {
     max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+}
+
+
+.lazyload {
+    display: block;
+    min-height: 1px;
+    opacity: 1;
+    transition: all 0.3s ease-in-out;
+}
+
+.lazyloaded .lazyload {
+    opacity: 1;
+}
+
+.button--primary {
+    background-image: linear-gradient(to left, $primary, $secondary);
+    background-color: $primary;
+    color: $white;
+    border: 0;
+    padding: 10px 25px;
+    border-radius: 0.25rem;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+
+    &:hover {
+        background-color: $secondary;
+        background-image: linear-gradient(to right, $primary, $secondary);
+        color: $white;
+    }
 }
