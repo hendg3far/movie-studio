@@ -51,6 +51,12 @@ export class ApiService {
       .pipe(catchError(this.handleError))
   }
 
+  search(query: string, page: number): Observable<any> {
+    const params = this.buildParams({ query, page: page.toString() });
+    return this.http.get(`${this.apiUrl}/search/multi`, { params })
+      .pipe(catchError(this.handleError));
+  }
+
   private handleError(error: any): Observable<never> {
     let errorMessage = 'Something went wrong';
 

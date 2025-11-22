@@ -1,0 +1,52 @@
+<div class="page-head">
+    <div class="container">
+        <div *ngIf="searchResults.length > 0; else noResults">
+            <div class="marginList">
+                <div class="listing__head">
+                    <h2 class="listing__title">Search Results for "{{ query }}"</h2>
+                </div>
+                <div class="listing__items row row-gap-4">
+                    <div *ngFor="let result of searchResults" class="col-lg-2 col-md-3 col-6">
+                        <div class="card border-0">
+                            <a [routerLink]="[result.link]" class="card__link">
+
+                                <div class="card__img d-flex align-items-center justify-content-center">
+                                    <img *ngIf="result.imgSrc" [attr.src]="result.imgSrc"
+                                        [alt]="result.title || result.name" class="lazyload">
+
+                                    <span *ngIf="!result.imgSrc">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"
+                                            viewBox="0 0 24 24" fill="#999">
+                                            <path d="M24 22h-24v-20h24v20zm-1-19h-22v18h22v-18zm-1 16h-19l4-7.492..." />
+                                        </svg>
+                                    </span>
+                                </div>
+
+                                <h2 class="card__name text-truncate">{{ result.title }}</h2>
+
+                                <div class="rating d-flex flex-wrap align-items-center column-gap-3 row-gap-1">
+                                    <div class="stars d-flex">
+                                        <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
+                                            <svg class="star" [ngClass]="{ 'filled': (+result.vote / 2) > i }"
+                                                width="15" height="14" viewBox="0 0 15 14"
+                                                xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M7.2 10.5609L11.6437 13.7953L9.95625 8.52185L14.4 5.39998H9L7.2 -2.38419e-05L5.4 5.39998H0L4.44375 8.52185L2.75625 13.7953L7.2 10.5609Z" />
+                                            </svg>
+                                        </ng-container>
+                                    </div>
+                                    <div class="card__vote">{{ result.vote }}</div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #noResults>
+            <p>No results found for "{{ query }}".</p>
+        </ng-template>
+    </div>
+</div>

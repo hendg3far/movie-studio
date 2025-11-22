@@ -49,10 +49,12 @@ export class CarouselComponent {
     breakpoints: {
       1400: { slidesPerView: 6, spaceBetween: 14, },
       1024: { slidesPerView: 5, spaceBetween: 14, },
-      768: { slidesPerView: 3, spaceBetween: 14, },
-      480: { slidesPerView: 2, spaceBetween: 14, },
-      0: { slidesPerView: 1 }
+      768: { slidesPerView: 4, spaceBetween: 14, },
+      480: { slidesPerView: 3, spaceBetween: 14, },
+      0: { slidesPerView: 2, spaceBetween: 14, }
     }
   };
+
+
 
 }

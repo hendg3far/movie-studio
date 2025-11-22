@@ -38,8 +38,8 @@
                             <h5 class="card__name text-truncate">{{ item.title }}</h5>
                             <div class="card__rating">
                                 <div class="card__stars">
-                                    <div class="rating d-flex align-items-center gap-3">
-                                        <div class="stars">
+                                    <div class="rating d-flex flex-wrap align-items-center column-gap-3 row-gap-1">
+                                        <div class="stars d-flex">
                                             <ng-container *ngFor="let s of [1,2,3,4,5]; let i = index">
                                                 <svg class="star" [ngClass]="{ 'filled': (+item.vote / 2) > i }"
                                                     width="15" height="14" viewBox="0 0 15 14"
