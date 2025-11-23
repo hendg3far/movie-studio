@@ -1,1 +1,17 @@
-<p>tv works!</p>
+<app-hero-slider [slides]="tv_data"></app-hero-slider>
+
+<app-carousel [title]="'Popular Tv Shows'" [isExplore]="false" [exploreLink]="'/tv/category/popular'"
+    [items]="tvCategories['popularTv']">
+</app-carousel>
+
+<app-carousel [title]="'Top Rated TV Shows'" [isExplore]="false" [exploreLink]="'/tv/category/top_rated'"
+    [items]="tvCategories['topRatedTv']">
+</app-carousel>
+
+<app-carousel [title]="'Currently Airing TV Shows'" [isExplore]="false" [exploreLink]="'/tv/category/on_the_air'"
+    [items]="tvCategories['onTheAirTv']">
+</app-carousel>
+
+<app-carousel [title]="'TV Shows Airing Today'" [isExplore]="false" [exploreLink]="'/tv/category/airing_today'"
+    [items]="tvCategories['airingTodayTv']">
+</app-carousel>
