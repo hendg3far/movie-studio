@@ -4,17 +4,12 @@
         <!-- Title + Explore -->
         <div class="listing__head d-flex align-items-center justify-content-between mb-4">
             <h2 class="listing__title mb-0">{{ title }}</h2>
-
-            <a *ngIf="isDefaultCarousel && !isExplore" [routerLink]="[exploreLink]"
-                routerLinkActive="router-link-active" class="listing__explore">
-                <strong>Explore All</strong>
-            </a>
         </div>
 
         <!-- Swiper -->
-        <swiper-container class="carousel" [slides-per-view]="swiperConfig.slidesPerView"
-            [space-between]="swiperConfig.spaceBetween" [navigation]="false" [loop]="swiperConfig.loop"
-            [autoplay]="swiperConfig.autoplay" [breakpoints]="swiperConfig.breakpoints">
+        <swiper-container class="carousel" slides-per-view="6" space-between="14" [attr.loop]="true"
+            autoplay='{"delay":2500,"disableOnInteraction":false}'
+            breakpoints='{ "1400":{"slidesPerView":6,"spaceBetween":14}, "1024":{"slidesPerView":5,"spaceBetween":14}, "768":{"slidesPerView":4,"spaceBetween":14},"480":{"slidesPerView":3,"spaceBetween":14}, "0":{"slidesPerView":2,"spaceBetween":14} }'>
 
             <!-- Item Slides -->
             <swiper-slide *ngFor="let item of items">
@@ -22,15 +17,11 @@
                     <a [routerLink]="[item.link]" class="card__link">
 
                         <div class="card__img">
-                            <img *ngIf="item.imgSrc" [attr.src]="item.imgSrc" [alt]="item.title || item.name"
-                                class="lazyload">
+                            <img [width]="204" [height]="307" *ngIf="item.imgSrc" [attr.src]="item.imgSrc"
+                                [alt]="item.title || item.name" class="lazyload">
 
-                            <span *ngIf="!item.imgSrc">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
-                                    fill="#999">
-                                    <path d="M24 22h-24v-20h24v20zm-1-19h-22v18h22v-18zm-1 16h-19l4-7.492..." />
-                                </svg>
-                            </span>
+                            <img src="https://placehold.co/204x307" *ngIf="!item.imgSrc">
+
                         </div>
 
                         <!-- Default Carousel -->
@@ -57,8 +48,8 @@
 
                         <!-- Cast Carousel -->
                         <div *ngIf="isCastCarousel">
-                            <h5 class="credits-item__name">{{ item.name }}</h5>
-                            <h5 class="credits-item__character">{{ item.character }}</h5>
+                            <h5 class="credits-item__name mb-0 mt-3">{{ item.name }}</h5>
+                            <p class="credits-item__character">{{ item.character }}</p>
                         </div>
 
                     </a>

@@ -29,21 +29,22 @@ export class SearchComponent implements OnInit {
 
   getSearchResults(query: string): void {
     this.apiService.search(query, 1).subscribe(
-      (response: any) => {
-        this.searchResults = response.results.map((item: any) => {
-          return {
-            link: item.media_type === 'movie' ? `/movie/${item.id}` : item.media_type === 'tv' ? `/tv/${item.id}` : `/person/${item.id}`,
-            imgSrc: item.poster_path ? `https://image.tmdb.org/t/p/w370_and_h556_bestv2${item.poster_path}` : '',
-            title: item.title || item.name,
-            rating: item.vote_average ? item.vote_average * 10 : 'N/A',
-            vote: item.vote_average ? item.vote_average : 'N/A',
-            poster_path: item.poster_path
-          };
-        });
-      },
-      error => {
-        console.error('Error fetching search data', error);
+      {
+        next: (response: any) => {
+          this.searchResults = response.results.map((item: any) => {
+            return {
+              link: item.media_type === 'movie' ? `/movie/${item.id}` : item.media_type === 'tv' ? `/tv/${item.id}` : `/person/${item.id}`,
+              imgSrc: item.poster_path ? `https://image.tmdb.org/t/p/w370_and_h556_bestv2${item.poster_path}` : '',
+              title: item.title || item.name,
+              rating: item.vote_average ? item.vote_average * 10 : 'N/A',
+              vote: item.vote_average ? item.vote_average : 'N/A',
+              poster_path: item.poster_path
+            };
+          });
+        }, error: (error) => {
+          console.error('Error fetching search data', error);
 
+        }
       }
     );
   }

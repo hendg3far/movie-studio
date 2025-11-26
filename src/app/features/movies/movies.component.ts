@@ -69,7 +69,6 @@ export class MoviesComponent {
           rating: item.vote_average * 10,
           vote: item.vote_average,
         }));
-        console.log(`${category} movies:`, response.results);
       },
       (error) => {
         console.error(`Error fetching ${category} movies:`, error);

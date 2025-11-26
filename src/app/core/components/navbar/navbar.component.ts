@@ -71,7 +71,7 @@ export class NavbarComponent implements AfterViewInit {
   closeSearch(): void {
     this.searchVisible = false;
     this.query = '';
-    this.router.navigate(['/']);
+    // this.router.navigate(['/']);
   }
 
 
@@ -87,10 +87,6 @@ export class NavbarComponent implements AfterViewInit {
   goBack(): void {
     this.query = '';
     this.router.navigate(['/']);
-  }
-
-  unFocus(event: FocusEvent): void {
-    this.closeSearch();
   }
 
   onSubmit(event: Event): void {

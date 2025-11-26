@@ -15,8 +15,14 @@ h2,
 h3,
 h4,
 h5,
-h6 {
-    font-family: $font-bd;
+h6,
+.h1,
+.h2,
+.h3,
+.h4,
+.h5,
+.h6 {
+    font-family: $font-md;
 }
 
 img {
@@ -86,4 +92,23 @@ a {
 
 .star.filled path {
     fill: #FFD700;
+}
+
+
+.nav-tabs {
+    border-bottom: 0;
+    margin-bottom: 50px;
+    justify-content: center;
+}
+
+.nav-tabs .nav-link {
+    border: 0;
+    border-radius: 8px;
+    color: $black;
+}
+
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    background-image: linear-gradient(90deg, $primary, $secondary);
+    color: $white;
 }

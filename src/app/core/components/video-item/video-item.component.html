@@ -1,0 +1,22 @@
+<div class="row row-gap-4">
+    <div class="col-lg-3 col-md-4 col-6" *ngFor="let videoData of videoData | slice: 1:13">
+        <div class="item">
+            <div (click)="openVideoModal(videoData.key)" class="link" style="cursor: pointer;">
+                <div class="image lazyloaded position-relative">
+                    <img class="lazyload" [src]="'https://img.youtube.com/vi/' + videoData?.key + '/mqdefault.jpg'">
+                    <div class="play text-center position-absolute start-0 end-0 mx-auto" style="top: 35%;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 55 55">
+                            <circle cx="27.5" cy="27.5" r="26.75" fill="none" stroke="#fff" stroke-linecap="round"
+                                stroke-linejoin="round" stroke-width="1.5"></circle>
+                            <path fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round"
+                                stroke-width="1.5" d="M20.97 40.81L40.64 27.5 20.97 14.19v26.62z"></path>
+                        </svg>
+                    </div>
+                </div>
+                <div class="h6 mb-0 mt-3 text-truncate">{{videoData?.name}}</div>
+                <div class="type">{{videoData?.type}}</div>
+            </div>
+        </div>
+    </div>
+
+</div>

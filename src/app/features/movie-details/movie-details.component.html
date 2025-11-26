@@ -1,1 +1,58 @@
-<p>movie-details works!</p>
+<app-hero-slider [slides]="heroSlides"></app-hero-slider>
+
+<div class="pt-5">
+    <div class="container">
+        <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+                <button class="nav-link active" id="overview-tab" data-bs-toggle="tab" data-bs-target="#overview"
+                    type="button" role="tab">
+                    Overview
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link" id="videos-tab" data-bs-toggle="tab" data-bs-target="#videos" type="button"
+                    role="tab">
+                    Videos
+                </button>
+            </li>
+
+            <li class="nav-item">
+                <button class="nav-link" id="photos-tab" data-bs-toggle="tab" data-bs-target="#photos" type="button"
+                    role="tab">
+                    Photos
+                </button>
+            </li>
+
+        </ul>
+
+        <div class="tab-content mt-3">
+
+            <div class="tab-pane fade show active" id="overview" role="tabpanel" aria-labelledby="overview-tab">
+                <div class="spacing">
+                    <app-media [data]="movie_data" [type]="type" [externalData]="external_data" class="info">
+                    </app-media>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="videos" role="tabpanel" aria-labelledby="videos-tab">
+                <div class="spacing">
+                    <app-video-item class="videos" [videoData]="videos" [videoType]="videoTypes">
+                    </app-video-item>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="photos" role="tabpanel" aria-labelledby="photos-tab">
+                <div class="spacing">
+                    <app-images [backdrops]="backdrops" [posters]="posters">
+                    </app-images>
+                </div>
+            </div>
+
+        </div>
+
+
+        <app-carousel [title]="'Cast'" [exploreLink]="'/'" [items]="cast_data" [isExplore]="false"
+            [isCastCarousel]="true" [isDefaultCarousel]="false"></app-carousel>
+    </div>
+</div>

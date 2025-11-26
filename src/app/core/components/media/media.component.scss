@@ -1,0 +1,9 @@
+@import 'utilities/variables.scss';
+
+.comma_ {
+    padding: 5px;
+    background-color: rgba($color: $primary, $alpha: 0.5);
+    border-radius: 4px;
+    font-size: 12px;
+    color: $white;
+}
