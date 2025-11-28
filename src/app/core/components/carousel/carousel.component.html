@@ -14,14 +14,29 @@
             <!-- Item Slides -->
             <swiper-slide *ngFor="let item of items">
                 <div class="card border-0">
-                    <a [routerLink]="[item.link]" class="card__link">
+                    <ng-container *ngIf="isDefaultCarousel; else noLink">
+                        <a [routerLink]="[item.link]" class="card__link">
+                            <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+                        </a>
+                    </ng-container>
 
+                    <!-- بدون Link للـ Cast Carousel -->
+                    <ng-template #noLink>
+                        <div class="card__link">
+                            <ng-container *ngTemplateOutlet="cardContent"></ng-container>
+                        </div>
+                    </ng-template>
+
+                    <!-- المحتوى المشترك لكل البطاقات -->
+                    <ng-template #cardContent>
                         <div class="card__img">
-                            <img [width]="204" [height]="307" *ngIf="item.imgSrc" [attr.src]="item.imgSrc"
-                                [alt]="item.title || item.name" class="lazyload">
+                            <img [width]="204" [height]="307" *ngIf="item.imgSrc" [src]="item.imgSrc"
+                                [alt]="item.title || item.name" class="lazyload object-fit-cover"
+                                onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg'" />
 
-                            <img src="https://placehold.co/204x307" *ngIf="!item.imgSrc">
-
+                            <img width="204" height="306" class="lazyload object-fit-cover" *ngIf="!item.imgSrc"
+                                src="https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+                                alt="" />
                         </div>
 
                         <!-- Default Carousel -->
@@ -51,9 +66,9 @@
                             <h5 class="credits-item__name mb-0 mt-3">{{ item.name }}</h5>
                             <p class="credits-item__character">{{ item.character }}</p>
                         </div>
-
-                    </a>
+                    </ng-template>
                 </div>
+
             </swiper-slide>
 
 

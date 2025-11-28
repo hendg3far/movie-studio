@@ -1,1 +1,15 @@
-<p>page-not-found works!</p>
+<div class="vh-100 not-found text-white"
+    style="margin-bottom: -4rem;background-image: url('https://wallpapers.com/images/hd/cinema-background-csjrmkuhfvvumb2q.jpg');">
+    <div class="d-flex flex-column justify-content-center align-items-center h-100">
+        <div class="container">
+            <div class="error-container">
+                <h1 class="error-title" id="errorTitle">Page Not Exist</h1>
+                <p class="error-message mb-5" id="errorMessage">
+                    Sorry, the page you were looking for may have been deleted or its link may have changed.
+                </p>
+                <a class="btn btn-lg button--primary" [routerLink]="'/'">Return To Homepage
+                </a>
+            </div>
+        </div>
+    </div>
+</div>

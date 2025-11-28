@@ -14,14 +14,16 @@ export class ApiService {
 
   constructor(private http: HttpClient) { }
 
-  private buildParams(params: any): HttpParams {
-    let httpParams = new HttpParams().set('api_key', this.apiKey).set('language', this.language);
-    for (const key in params) {
-      if (params.hasOwnProperty(key)) {
-        httpParams = httpParams.set(key, params[key]);
-      }
-    }
-    return httpParams;
+  private buildParams(extraParams: Record<string, any> = {}): HttpParams {
+    let params = new HttpParams()
+      .set('api_key', this.apiKey)
+      .set('language', this.language);
+
+    Object.entries(extraParams).forEach(([key, value]) => {
+      params = params.set(key, value)
+    });
+
+    return params;
   }
 
   getNowPlaying(mediaType: string, page: number): Observable<any> {
